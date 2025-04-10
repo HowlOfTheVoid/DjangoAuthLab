@@ -8,7 +8,26 @@
 </head>
 <body>
 <!--Authentication section-->
-
+{% if user.is_authenticated %}
+    <p>Username: {{user.username}}, First name: {{user.first_name}}, Last Name: {{user.last_name}}</p>
+    <div class="rightalign">
+        <div class="dropdown">
+            <button class="dropbtn">{{user.first_name}} </button>
+            <div class="dropdown-content">
+                <a href="{% url 'onlinecourse:logout' %}">Logout</a>
+            </div>
+        </div>
+    </div>
+    {% else %}
+        <div class="rightalign">
+            <div class="dropdown">
+                <button class="dropbtn">Guest</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'onlinecourse:login' %}">Login</a>
+                </div>
+            </div>
+        </div>
+{% endif %}
 <h2>Popular courses list</h2>
 <hr>
 {% if course_list %}
