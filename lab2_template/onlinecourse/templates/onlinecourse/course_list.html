@@ -21,8 +21,9 @@
     {% else %}
         <div class="rightalign">
             <div class="dropdown">
-                <button class="dropbtn">Guest</button>
+                <button class="dropbtn" type="submit" value="Visitor">Guest</button>
                 <div class="dropdown-content">
+                    <a href="{% url 'onlinecourse:registration' %}">Register</a>
                     <a href="{% url 'onlinecourse:login' %}">Login</a>
                 </div>
             </div>
